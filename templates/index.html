@@ -43,13 +43,30 @@
         .image-upload-wrapper {
             margin-bottom: 15px;
         }
+        /* Styles for the preview section */
+        #preview {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        #preview h2 {
+            margin-top: 0;
+        }
+        #preview img {
+            max-width: 100%; /* Ensures the image does not exceed the width of its container */
+            height: auto;    /* Maintains the aspect ratio of the image */
+            display: block;  /* Removes any extra space below the image */
+            object-fit: contain; /* Ensures the entire image is visible while maintaining aspect ratio */
+            max-height: 300px; /* Limits the height of the image */
+        }
     </style>
     <script>
         function uploadImage() {
             const fileInput = document.getElementById('imageUpload');
             const formData = new FormData();
             formData.append('image', fileInput.files[0]);
-
             fetch('/upload_image', {
                 method: 'POST',
                 body: formData
@@ -79,5 +96,11 @@
         </div>
         <button type="submit">Save Post</button>
     </form>
+
+    <!-- Preview Section -->
+    <h2>Preview</h2>
+    <div id="preview">
+        {{ preview_html | safe }}
+    </div>
 </body>
 </html>
