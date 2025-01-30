@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jekyll Post Writer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        textarea {
+            height: 300px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #imageUpload {
+            display: none;
+        }
+        .image-upload-wrapper {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function uploadImage() {
+            const fileInput = document.getElementById('imageUpload');
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+
+            fetch('/upload_image', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(markdown => {
+                const textarea = document.getElementById('content');
+                const cursorPos = textarea.selectionStart;
+                const textBefore = textarea.value.substring(0, cursorPos);
+                const textAfter = textarea.value.substring(cursorPos);
+                textarea.value = textBefore + '\n' + markdown + '\n' + textAfter;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Create Jekyll Post</h1>
+    <div class="image-upload-wrapper">
+        <input type="file" id="imageUpload" accept=".png,.jpg,.jpeg,.gif" onchange="uploadImage()">
+        <button type="button" onclick="document.getElementById('imageUpload').click()">Add Image</button>
+    </div>
+    <form action="{{ url_for('save') }}" method="post">
+        <div class="form-group">
+            <label for="content">Content (Markdown):</label>
+            <textarea id="content" name="content" required></textarea>
+        </div>
+        <button type="submit">Save Post</button>
+    </form>
+</body>
+</html>
