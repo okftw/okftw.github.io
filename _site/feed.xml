@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-01-31T07:41:13+11:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OKFTW</title><subtitle>I&apos;m OK</subtitle><entry><title type="html">30-01-2025</title><link href="http://localhost:4000/blog/2025/01/30/30-01-2025.html" rel="alternate" type="text/html" title="30-01-2025" /><published>2025-01-30T21:41:08+11:00</published><updated>2025-01-30T21:41:08+11:00</updated><id>http://localhost:4000/blog/2025/01/30/30-01-2025</id><content type="html" xml:base="http://localhost:4000/blog/2025/01/30/30-01-2025.html"><![CDATA[<p>Yo lets see if the date works now</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-01-31T17:18:16+11:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">OKFTW</title><subtitle>I&apos;m OK for the win</subtitle><entry><title type="html">31-01-2025</title><link href="http://0.0.0.0:4000/blog/2025/01/31/31-01-2025.html" rel="alternate" type="text/html" title="31-01-2025" /><published>2025-01-31T08:05:05+11:00</published><updated>2025-01-31T08:05:05+11:00</updated><id>http://0.0.0.0:4000/blog/2025/01/31/31-01-2025</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2025/01/31/31-01-2025.html"><![CDATA[<p>Another day, another AI model… this time Alibaba has released a model called Qwen that is even better than DeepSeek, this model is also free to use… makes you wonder how these companies spending millions of dollars to develop these models are going to make money when other companies are releasing them for free…</p>
+
+<p>Testing out QWEN’s image generating capabilities :</p>
+
+<p>“generate me an image of a nigiri sushi riding a bike it should be cartoon style”</p>
+
+<p><img src="/assets/images/0b751b515207457ba19603c1114b4b6a.png" alt="" /></p>
+
+<p>I find AI to be exciting and scary… I guess it’s not the AI I’m afraid of it’s the large corporations who only care about profits and couldn’t care less about the suffering of other people that worries me. Once these large tech companies start fully automating their workforce they will start laying people off on mass and they will no longer be required. The unemployment numbers will grow and what will these people be doing instead for work? When you walk into McDonalds, all the counter staff are gone and now there are kiosks in their place, when you go to the super market instead of cashiers there are now self service checkouts.. this will happen more and more. Even harder white collar jobs are not safe, AI can do video editing, it can do coding work, it can generate art in a matter of seconds.</p>
+
+<p>Not sure if society is going to be ok, or it’s going to turn into the movie Elysium where the wealthy upper class go up onto the space ship orbiting earth while the rest of us are policed by robots on earth.</p>
+
+<p>I need to come up with some more goals this year, I want to :</p>
+<ul>
+  <li>Create some open source projects :</li>
+  <li>fitness tracker, support for Bryan Johnson blueprint tracker, api driven, react front end.</li>
+  <li>Test out Django and Zappa deployment to API Gateway.</li>
+  <li>open source home work for school kids system</li>
+  <li>build these solutions out in AWS ideally using the always free tier services like s3 and dynamodb</li>
+  <li>Learn Japanese</li>
+</ul>
+
+<p>Comment on DeepSeek copying ChatGPT</p>
+
+<p><img src="/assets/images/38d3822bf3194f05b085eda4b0d2c57b.png" alt="" /></p>
+
+<p><img src="/assets/images/38814c20edf8423182ae1ac711fd5916.png" alt="" /></p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[Another day, another AI model… this time Alibaba has released a model called Qwen that is even better than DeepSeek, this model is also free to use… makes you wonder how these companies spending millions of dollars to develop these models are going to make money when other companies are releasing them for free…]]></summary></entry><entry><title type="html">30-01-2025</title><link href="http://0.0.0.0:4000/blog/2025/01/30/30-01-2025.html" rel="alternate" type="text/html" title="30-01-2025" /><published>2025-01-30T21:41:08+11:00</published><updated>2025-01-30T21:41:08+11:00</updated><id>http://0.0.0.0:4000/blog/2025/01/30/30-01-2025</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2025/01/30/30-01-2025.html"><![CDATA[<p>Yo lets see if the date works now</p>
 
 <p>Ok now we’re going to deploy from the raspberry pi</p>
 

@@ -21,7 +21,7 @@
 title: OKFTW
 email: okforthewin@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I'm OK
+  I'm OK for the win
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb

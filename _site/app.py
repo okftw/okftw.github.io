@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import datetime
 import re
 import os
 import urllib.parse
+import markdown  # Import markdown library
 from werkzeug.utils import secure_filename
 import uuid
 
@@ -40,7 +41,6 @@ def process_content(content):
         if video_id:
             return f'{{% include youtube.html id=\'{video_id}\' %}}'
         return url
-
     return re.sub(youtube_pattern, replace_with_embed, content)
 
 def create_filename(title):
@@ -58,12 +58,32 @@ title: "{title}"
 date: {date} +1100
 categories: blog
 ---
-
 """
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    # Get today's date
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    posts_dir = '_posts'
+    filename = f"{today}-*.md"  # Match today's Markdown file
+
+    # Find the Markdown file for today
+    matching_files = [f for f in os.listdir(posts_dir) if re.match(rf"{today}-.*\.md", f)]
+
+    if matching_files:
+        filepath = os.path.join(posts_dir, matching_files[0])
+        with open(filepath, 'r') as f:
+            content = f.read()
+
+        # Extract content after frontmatter
+        _, content = content.split('---', 2)[-1], content.split('---', 2)[-1]
+
+        # Convert Markdown to HTML
+        html_content = markdown.markdown(content)
+    else:
+        html_content = "<p>No content available for today.</p>"
+
+    return render_template('index.html', preview_html=html_content)
 
 @app.route('/upload_image', methods=['POST'])
 def upload_image():
@@ -91,6 +111,10 @@ def upload_image():
     
     return 'Invalid file type', 400
 
+@app.route('/assets/images/<filename>')
+def serve_image(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 @app.route('/save', methods=['POST'])
 def save():
     now = datetime.datetime.now()
@@ -100,7 +124,6 @@ def save():
     processed_content = process_content(content)
     
     posts_dir = os.path.join('_posts')
-
     os.makedirs(posts_dir, exist_ok=True)
     
     filepath = os.path.join(posts_dir, create_filename(title))
@@ -118,4 +141,3 @@ def save():
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=7000)
-    
